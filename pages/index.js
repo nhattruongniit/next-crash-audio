@@ -1,13 +1,23 @@
-import Head from 'next/head'
+import { server } from '../configs'
 
-export default function Home() {
+// components
+import ArticleList from '../components/ArticleList';
+
+export default function Home({ articles }) {
   return (
-    <div>
-      <Head>
-        <title>Webdev Audio</title>
-        <meta name="keyword" content="web development" />
-      </Head>
-        hello
-    </div>
+    <>
+      <ArticleList articles={articles} />
+    </>
   )
+}
+
+export const getStaticProps = async () => {
+  const res = await fetch(`${server}/api/articles`);
+  const articles = await res.json();
+
+  return {
+    props: {
+      articles
+    }
+  }
 }

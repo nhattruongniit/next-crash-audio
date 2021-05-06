@@ -1,0 +1,13 @@
+.title span {
+  color: #0070f3;
+}
+
+.title,
+.description {
+  text-align: center;
+}
+
+.description {
+  line-height: 1.5;
+  font-size: 1.5rem;
+}
